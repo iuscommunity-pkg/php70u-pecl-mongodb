@@ -21,8 +21,8 @@
 
 Summary:        MongoDB driver for PHP
 Name:           %{php}-pecl-%{pecl_name}
-Version:        1.2.8
-Release:        2.ius%{?dist}
+Version:        1.2.9
+Release:        1.ius%{?dist}
 License:        ASL 2.0
 Group:          Development/Languages
 URL:            http://pecl.php.net/package/%{pecl_name}
@@ -197,6 +197,9 @@ fi
 
 
 %changelog
+* Thu May 04 2017 Carl George <carl.george@rackspace.com> - 1.2.9-1.ius
+- Latest upstream
+
 * Thu May 04 2017 Ben Harper <ben.harper@rackspace.com> - 1.2.8-2.ius
 - correct Requires(post) and Requires(postun)
 
