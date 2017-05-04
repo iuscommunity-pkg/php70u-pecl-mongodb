@@ -22,7 +22,7 @@
 Summary:        MongoDB driver for PHP
 Name:           %{php}-pecl-%{pecl_name}
 Version:        1.2.8
-Release:        1.ius%{?dist}
+Release:        2.ius%{?dist}
 License:        ASL 2.0
 Group:          Development/Languages
 URL:            http://pecl.php.net/package/%{pecl_name}
@@ -40,8 +40,8 @@ Requires:       php(zend-abi) = %{php_zend_api}
 Requires:       php(api) = %{php_core_api}
 Requires:       %{php}-json%{?_isa}
 
-Requires(post): pecl >= 1.10.0
-Requires(postun): pecl >= 1.10.0
+Requires(post): %{php}-pear
+Requires(postun): %{php}-pear
 
 # provide the stock name
 Provides:       php-pecl-%{pecl_name} = %{version}
@@ -197,6 +197,9 @@ fi
 
 
 %changelog
+* Thu May 04 2017 Ben Harper <ben.harper@rackspace.com> - 1.2.8-2.ius
+- correct Requires(post) and Requires(postun)
+
 * Wed May 03 2017 Ben Harper <ben.harper@rackspace.com> - 1.2.8-1.ius
 - initial port from Fedora to IUS
 
