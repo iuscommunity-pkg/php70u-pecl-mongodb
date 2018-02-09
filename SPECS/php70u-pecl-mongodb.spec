@@ -22,7 +22,7 @@
 
 Summary:        MongoDB driver for PHP
 Name:           %{php}-pecl-%{pecl_name}
-Version:        1.3.4
+Version:        1.4.0
 Release:        1.ius%{?dist}
 License:        ASL 2.0
 Group:          Development/Languages
@@ -34,8 +34,8 @@ BuildRequires:  %{php}-pear
 BuildRequires:  %{php}-json
 BuildRequires:  cyrus-sasl-devel
 BuildRequires:  openssl-devel
-%{?with_libbson:BuildRequires: pkgconfig(libbson-1.0) >= 1.8.0}
-%{?with_libmongoc:BuildRequires: pkgconfig(libmongoc-1.0) >= 1.8.0}
+%{?with_libbson:BuildRequires: pkgconfig(libbson-1.0) >= 1.9.0}
+%{?with_libmongoc:BuildRequires: pkgconfig(libmongoc-1.0) >= 1.9.0}
 
 Requires:       php(zend-abi) = %{php_zend_api}
 Requires:       php(api) = %{php_core_api}
@@ -114,6 +114,7 @@ peclbuild() {
     --with-php-config=%{_bindir}/${1}-config \
     %{?_with_libbson} \
     %{?_with_libmongoc} \
+    --with-mongodb-sasl \
     --enable-mongodb
 
   make %{?_smp_mflags}
@@ -193,6 +194,13 @@ fi
 
 
 %changelog
+* Fri Feb 09 2018 Ben Harper <ben.harper@rackspace.com> - 1.4.0-1.ius
+- Latest upstream
+- update libbson and libmongoc version requirements from Fedora:
+  https://src.fedoraproject.org/rpms/php-pecl-mongodb/c/0a6ae3aa4027cf545c3f1f8d48938d65e0ee893f
+- add with-mongodb-sasl build option from Fedora:
+  https://src.fedoraproject.org/rpms/php-pecl-mongodb/c/a75ea22c57ba9de17169b5a0409289754abfc4a3
+
 * Mon Dec 04 2017 Carl George <carl@george.computer> - 1.3.4-1.ius
 - Latest upstream
 
